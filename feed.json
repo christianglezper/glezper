@@ -1,0 +1,14 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Glezper",
+    "description": "",
+    "home_page_url": "https://glezper.com",
+    "feed_url": "https://glezper.com/feed.json",
+    "user_comment": "",
+    "icon": "https://glezper.com/media/website/glezper_gold_wordmark.png",
+    "author": {
+        "name": "Christian Gonzalez"
+    },
+    "items": [
+    ]
+}
