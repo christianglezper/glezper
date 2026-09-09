@@ -1,0 +1,29 @@
+name: Hugo portfolio build check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - hugo-portfolio-prep
+    paths:
+      - 'hugo-portfolio/**'
+      - '.github/workflows/hugo-portfolio-build.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hugo-portfolio
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Hugo
+        run: |
+          HUGO_VERSION=0.148.2
+          wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb" -O /tmp/hugo.deb
+          sudo dpkg -i /tmp/hugo.deb
+
+      - name: Build
+        run: hugo --minify
