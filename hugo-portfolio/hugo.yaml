@@ -1,0 +1,9 @@
+baseURL: "/"
+languageCode: "en-us"
+title: "Christian González — Portfolio"
+disableKinds:
+  - taxonomy
+  - term
+
+params:
+  description: "Selected communications, strategy, media and creative work by Christian González Pérez."
