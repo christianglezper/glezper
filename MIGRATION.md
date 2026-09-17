@@ -42,9 +42,9 @@ details come from the existing site. Spanish is an editorial working translation
 and **has not been approved**. Christian may provide replacement Spanish copy.
 Its `editorialStatus` field records this without displaying a notice to visitors.
 
-The OPF-only CTA has been replaced with a Glezper inquiry form. No rates,
+The OPF referral CTA is retained alongside a Glezper inquiry form. No rates,
 approvals, savings or financing guarantees were added. The original OPF referral
-URL remains recoverable in the backup for future reviewed referrals.
+URL and partner attribution are preserved in the CTA.
 The existing Valor and Agaynda external URLs were retained, not reverified.
 
 The removed Madrid essay is intentionally not resurrected on the corporate site.
@@ -152,3 +152,53 @@ Keep the cream, charcoal and gold palette with a small number of wide images:
 
 These are suggestions, not newly sourced or licensed photo assets. Do not present
 stock people as Glezper staff or former portfolio work as current Glezper clients.
+
+## OPF and secure document collection — follow-up
+
+User explicitly requested keeping the OPF link and asked about secure funding/POS
+statement uploads. The OPF referral button is restored in English and Spanish,
+both in the capital section and as a contextual option in the financing form.
+The contextual option appears for revenue of at least $10,000/month and three
+months or more in business. This is an invitation to OPF's review, not approval.
+Its URL preserves the original partner ID and does not contain form responses.
+There is no automatic redirect and the inquiry is not submitted by clicking it.
+
+OPF source checked September 17, 2026:
+https://www.oneparkfinancial.com/how-it-works
+OPF lists three months of business bank statements or its bank-verification flow.
+
+### Proposed document flow — not activated
+
+1. Persist preliminary business/contact information and selected services in an
+   authenticated form/CRM backend, assigning a non-guessable inquiry reference.
+2. Offer a secure document-request step only for funding and existing POS reviews.
+   The request must link back to that saved inquiry. Never carry bank details,
+   personal information or document URLs in public query strings.
+3. Funding: request bank statements only when appropriate for the selected funding
+   path; OPF can handle its own application documents. Under-$10,000 inquiries
+   stay with Glezper for review; do not claim B2B Funding is active yet.
+4. Existing POS rate comparison: request recent merchant-processing statements.
+   New businesses and first-time processors can choose that no statements exist.
+   Automation-only inquiries have no financial-document request.
+5. Store documents in private encrypted storage. Restrict review to authorized
+   staff; email only a notification and a sign-in-protected record link. Do not
+   attach statements to ordinary notification emails or expose public file URLs.
+6. Require specific consent for sharing documents with a named financing/POS
+   partner when a referral is proposed. Do not automatically send documents to
+   all providers. Configure retention/deletion and test access isolation.
+
+Recommended starting point: the user's existing Zoho account. Zoho Forms supports
+encryption of file-upload fields on paid plans. A two-step form/workflow or Zoho
+WorkDrive collection request can provide a separate upload step. WorkDrive Collect
+Files supports expiration, upload limits and notifications on Team/Business plans.
+A generic collection link is not an identity-verified portal; configure appropriate
+access and per-inquiry tracking before collecting bank statements.
+
+Sources:
+- https://help.zoho.com/portal/en/kb/forms/form-settings/privacy-features/personal-and-encrypted-fields/articles/personal-encrypted-fields-overview
+- https://help.zoho.com/portal/en/kb/workdrive/organize-and-locate-files/articles/collect-files
+
+Zoho access and actual subscription features must be verified before activating
+this flow. No upload field, portal, email delivery or statement storage is active.
+The previous FormSubmit proposal has not been authorized and remains disabled;
+do not use it to transport statements. The user has not authorized a paid upgrade.

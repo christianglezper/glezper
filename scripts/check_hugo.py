@@ -56,7 +56,8 @@ for lang in ['', 'es/']:
     text = (root / lang / 'business/index.html').read_text()
     assert 'data-delivery-enabled=false' in text or 'data-delivery-enabled="false"' in text
     assert 'action=#business-inquiry' in text or 'action="#business-inquiry"' in text
-    assert '001QP00001dUhWtYAK' not in text, 'Inquiry must not go directly to a provider'
+    assert '001QP00001dUhWtYAK' in text, 'Preserve the OPF referral button'
+    assert 'type=file' not in text and 'type="file"' not in text, 'Document portal not yet configured'
     for field in ['interest_financing', 'interest_pos', 'interest_automation', 'monthly_revenue', 'pos_goal', 'automation_process', 'contact_consent', '_honey']:
         assert f'name={field}' in text or f'name="{field}"' in text, f'Missing field {field}'
     assert 'https://glezper.com/' + lang + 'thanks/' in text

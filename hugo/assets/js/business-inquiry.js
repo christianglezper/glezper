@@ -21,6 +21,9 @@
         input.required = active && matches && input.dataset.required === 'true';
       }
     }
+    const opfRoute = document.getElementById('opf-qualified-route');
+    const established = ['3_to_5_months', '6_to_11_months', '1_to_2_years', 'over_2_years'].includes(form.elements.namedItem('business_stage').value);
+    if (opfRoute) opfRoute.hidden = revenueSegment() !== 'monthly_10000_or_more' || !established;
   }
 
   function revenueSegment() {

@@ -31,6 +31,7 @@
         <legend>{{ .title }}</legend>
         <p class="inquiry-note">{{ .description }}</p>
         <div class="inquiry-grid">{{ range .fields }}{{ partial "inquiry-field.html" (dict "field" . "select" $copy.select "conditional" true) }}{{ end }}</div>
+        {{ if eq .id "financing" }}{{ partial "opf-cta.html" (dict "Page" $.Page "conditional" true) }}{{ end }}
       </fieldset>
     {{ end }}
     <fieldset>

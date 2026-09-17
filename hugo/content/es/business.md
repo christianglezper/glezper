@@ -32,6 +32,8 @@ La elegibilidad, los productos disponibles, las cantidades y los términos los d
 
 Comienza con una breve consulta sobre tu negocio, sus ingresos mensuales y el capital que necesita. Revisamos cada consulta antes de conversar sobre los próximos pasos. Puedes consultar independientemente del nivel de ingresos de tu negocio; las opciones disponibles dependen del proveedor y de tu perfil comercial.
 
+{{< opf-cta >}}
+
 ### Procesamiento de pagos y POS
 
 **Facilita la forma de cobrar.**
