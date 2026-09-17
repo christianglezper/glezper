@@ -2,9 +2,14 @@
   <p class="glezper-eyebrow">{{ .Params.eyebrow }}</p>
   <h1 id="hero-title">{{ .Title }}</h1>
   <div class="glezper-intro">{{ .Content }}</div>
-  {{ with .Site.GetPage "/contact" }}
-    <a class="glezper-button" href="{{ .RelPermalink }}">{{ $.Params.cta }} {{ partial "glezper-arrow.html" . }}</a>
-  {{ end }}
+  <div class="glezper-home-actions">
+    {{ with .Site.GetPage "/contact" }}
+      <a class="glezper-button" href="{{ .RelPermalink }}">{{ $.Params.cta }} {{ partial "glezper-arrow.html" . }}</a>
+    {{ end }}
+    <a class="glezper-button glezper-portfolio-button" href="https://christian.glezper.com/" target="_blank" rel="noopener noreferrer">
+      {{ if eq .Language.Lang "es" }}Ver el portafolio de Christian{{ else }}View Christian’s portfolio{{ end }} {{ partial "glezper-arrow.html" . }}
+    </a>
+  </div>
 </section>
 <section class="glezper-practices" aria-labelledby="practices-title">
   <h2 id="practices-title" class="glezper-section-title">{{ .Params.divisionsLabel }}</h2>

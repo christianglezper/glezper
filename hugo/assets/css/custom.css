@@ -10,6 +10,10 @@ header img.logo { max-width: 160px; max-height: 48px; width: 160px; height: auto
 .glezper-intro { max-width: 720px; font-size: clamp(1.1rem,1.6vw,1.3rem); line-height: 1.65; }
 .glezper-intro p + p { margin-top: 1rem; opacity: .8; }
 .glezper-button { display: inline-flex; align-items: center; gap: 2rem; padding: .9rem 1.4rem; margin-top: 2rem; background: #272820; color: #fff; border: 1px solid #272820; border-radius: 6px; font-weight: 650; }
+.glezper-home-actions { display: flex; flex-wrap: wrap; gap: .8rem 1rem; align-items: center; margin-top: 2rem; }
+.glezper-home-actions .glezper-button { margin-top: 0; }
+.glezper-portfolio-button { background: transparent; color: #272820; border-color: #272820; }
+.dark .glezper-portfolio-button { background: transparent; color: #d4b56f; border-color: #d4b56f; }
 .dark .glezper-button { background: #d4b56f; color: #202119; border-color: #d4b56f; }
 .glezper-button:hover { background: #77571d; color: #fff; }
 .glezper-section-title { font-size: 1.1rem; font-weight: 650; margin-bottom: 1.5rem; }
