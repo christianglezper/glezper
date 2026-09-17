@@ -3,7 +3,7 @@
   <h1 id="hero-title">{{ .Title }}</h1>
   <div class="glezper-intro">{{ .Content }}</div>
   {{ with .Site.GetPage "/contact" }}
-    <a class="glezper-button" href="{{ .RelPermalink }}">{{ $.Params.cta }} <span aria-hidden="true">↗</span></a>
+    <a class="glezper-button" href="{{ .RelPermalink }}">{{ $.Params.cta }} {{ partial "glezper-arrow.html" . }}</a>
   {{ end }}
 </section>
 <section class="glezper-practices" aria-labelledby="practices-title">
@@ -17,7 +17,7 @@
         <p>{{ $division.text }}</p>
         {{ with $division.detail }}<p class="glezper-detail">{{ . }}</p>{{ end }}
         {{ with $.Site.GetPage $division.page }}
-          <a href="{{ .RelPermalink }}">{{ if eq $.Language.Lang "es" }}Explora{{ else }}Explore{{ end }} {{ $division.title }} <span aria-hidden="true">→</span></a>
+          <a href="{{ .RelPermalink }}">{{ if eq $.Language.Lang "es" }}Explora{{ else }}Explore{{ end }} {{ $division.title }} {{ partial "glezper-arrow.html" . }}</a>
         {{ end }}
       </article>
     {{ end }}
@@ -26,5 +26,5 @@
 <section class="glezper-contact" aria-labelledby="contact-title">
   <h2 id="contact-title">{{ .Params.contactHeading }}</h2>
   <p>{{ .Params.contactText }}</p>
-  <div class="glezper-contact-links"><a href="mailto:christianglezper@gmail.com">christianglezper@gmail.com</a><a href="tel:+17873779522">787-377-9522</a></div>
+  <div class="glezper-contact-links"><a href="mailto:christianglezper@gmail.com">christianglezper@gmail.com</a></div>
 </section>

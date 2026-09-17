@@ -60,12 +60,15 @@ pages = [
 ]
 
 for source, slug, title, description in pages:
+    target = ROOT / 'hugo/content/en' / (slug + '.md')
+    if target.exists():
+        print(f'Skipping edited page: {target.relative_to(ROOT)}')
+        continue
     parser = ContentParser()
     parser.feed((ROOT / source).read_text())
     body = ''.join(parser.parts).strip()
     body = body.replace('**christianglezper@gmail.com**', '**[christianglezper@gmail.com](mailto:christianglezper@gmail.com)**')
-    body = body.replace('**787-377-9522**', '**[787-377-9522](tel:+17873779522)**')
+    body = body.replace('**787-377-9522**', '')
     front = f'---\ntitle: {json.dumps(title, ensure_ascii=False)}\ndescription: {json.dumps(description)}\ntranslationKey: {slug}\naliases: ["/{source}"]\n---\n\n'
-    target = ROOT / 'hugo/content/en' / (slug + '.md')
     target.write_text(front + body + '\n')
     print(target.relative_to(ROOT))

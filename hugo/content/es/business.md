@@ -1,12 +1,14 @@
 ---
 title: "Glezper Business"
-description: "Soluciones de negocio, estrategia comercial y acceso a capital para empresas que cualifiquen."
+description: "Explora financiamiento, procesamiento de pagos y automatización con Glezper Business."
 translationKey: business
 editorialStatus: "Traducción provisional; pendiente de revisión por Christian."
 ---
 ## Las ideas necesitan infraestructura.
 
 Glezper Business reúne soluciones prácticas para ayudar a las empresas a operar, crecer y explorar nuevas oportunidades.
+
+[Cuéntanos qué necesita tu negocio](#business-inquiry)
 
 Identificamos necesidades, las conectamos con los recursos adecuados y desarrollamos soluciones según la realidad de cada negocio.
 
@@ -28,7 +30,19 @@ Los fondos pueden destinarse a inventario, equipo, expansión, mercadeo, remodel
 
 La elegibilidad, los productos disponibles, las cantidades y los términos los determina el proveedor de financiamiento correspondiente según las circunstancias de cada negocio.
 
-[Explora tus opciones de financiamiento →](https://secure.oneparkfinancial.com/application/iso-partner?lan=es&source=partner&partnerId=001QP00001dUhWtYAK&opportunitySignedStageName=Application%20In&opportunityCompleteStageName=UW%20-%20Doc%20Processing)
+Comienza con una breve consulta sobre tu negocio, sus ingresos mensuales y el capital que necesita. Revisamos cada consulta antes de conversar sobre los próximos pasos. Puedes consultar independientemente del nivel de ingresos de tu negocio; las opciones disponibles dependen del proveedor y de tu perfil comercial.
+
+### Procesamiento de pagos y POS
+
+**Facilita la forma de cobrar.**
+
+¿Vas a abrir un negocio, incorporar pagos por internet o revisar tus costos de procesamiento? Cuéntanos cómo vendes, qué utilizas actualmente y qué te gustaría mejorar. Evaluamos tus necesidades para explorar contigo las opciones de proveedores que puedan atenderlas.
+
+### Automatización de procesos
+
+**Dale un mejor flujo al trabajo repetitivo.**
+
+El seguimiento a prospectos, los recordatorios de citas, la facturación, el servicio al cliente y los informes pueden quitarte tiempo para dirigir tu negocio. Cuéntanos qué procesos te atrasan y qué herramientas ya utilizas. Evaluaremos la oportunidad y si un aliado especializado podría ayudarte.
 
 ### Crecimiento y estrategia comercial
 
@@ -50,4 +64,4 @@ Al reunir esas disciplinas, Glezper puede considerar el objetivo de negocio comp
 
 Cuéntanos dónde estás, adónde quieres llegar y qué se interpone entre ambos puntos. Te ayudamos a identificar las soluciones que tengan sentido.
 
-[Hablemos](../contact/).
+{{< business-inquiry >}}

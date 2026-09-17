@@ -7,7 +7,7 @@ Tell us where you are, where you're trying to go and what's standing between the
 
 **Email:** [christianglezper@gmail.com](mailto:christianglezper@gmail.com)
 
-**Phone:** [787-377-9522](tel:+17873779522)
+For financing, payment processing or automation, [complete our business inquiry form]({{< ref "business" >}}#business-inquiry).
 
 Based in Puerto Rico. Available in English and Spanish.
 

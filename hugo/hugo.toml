@@ -65,6 +65,8 @@ buildFuture = false
     weight = 40
 
 [params]
+  businessFormEndpoint = 'https://formsubmit.co/christianglezper@gmail.com'
+  businessFormEnabled = false
   colorScheme = 'avocado'
   defaultAppearance = 'light'
   autoSwitchAppearance = false

@@ -1,0 +1,51 @@
+{{ $copy := index hugo.Data.inquiry .Page.Language.Lang }}
+<section id="business-inquiry" class="business-inquiry not-prose" aria-labelledby="inquiry-title">
+  <p class="glezper-eyebrow">Glezper Business</p>
+  <h2 id="inquiry-title">{{ $copy.title }}</h2>
+  <p>{{ $copy.intro }}</p>
+  <p class="inquiry-note">{{ $copy.required }}</p>
+  {{ if not site.Params.businessFormEnabled }}<p class="inquiry-preview-note" role="status">{{ if eq .Page.Language.Lang "es" }}Vista previa: puedes explorar el formulario; el envío aún no está habilitado.{{ else }}Preview: you can explore the form; submissions are not enabled yet.{{ end }}</p>{{ end }}
+  <form id="glezper-inquiry" action="{{ if site.Params.businessFormEnabled }}{{ site.Params.businessFormEndpoint }}{{ else }}#business-inquiry{{ end }}" method="POST" accept-charset="UTF-8" data-delivery-enabled="{{ site.Params.businessFormEnabled }}" data-service-error="{{ $copy.serviceError }}" data-sending="{{ $copy.sending }}">
+    <input type="hidden" name="_subject" value="Glezper Business | New inquiry">
+    <input type="hidden" name="_template" value="table">
+    {{ with .Page.Site.GetPage "/thanks" }}<input type="hidden" name="_next" value="{{ .Permalink }}">{{ end }}
+    <input type="hidden" name="language" value="{{ .Page.Language.Lang }}">
+    <input type="hidden" name="revenue_segment" value="manual_review">
+    <input type="hidden" name="inquiry_summary" value="">
+    <input type="text" name="_honey" class="inquiry-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <fieldset class="inquiry-services">
+      <legend>{{ $copy.servicesLabel }}</legend>
+      <div class="inquiry-options">
+        {{ range $copy.services }}
+          <label class="inquiry-option"><input type="checkbox" name="interest_{{ .value }}" value="{{ .value }}" data-service="{{ .value }}"><span>{{ .label }}</span></label>
+        {{ end }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>{{ $copy.contactHeading }}</legend>
+      <div class="inquiry-grid">{{ range $copy.contact }}{{ partial "inquiry-field.html" (dict "field" . "select" $copy.select "conditional" false) }}{{ end }}</div>
+    </fieldset>
+    <noscript><p>{{ $copy.noscript }}</p></noscript>
+    {{ range $copy.sections }}
+      <fieldset data-section="{{ .id }}">
+        <legend>{{ .title }}</legend>
+        <p class="inquiry-note">{{ .description }}</p>
+        <div class="inquiry-grid">{{ range .fields }}{{ partial "inquiry-field.html" (dict "field" . "select" $copy.select "conditional" true) }}{{ end }}</div>
+      </fieldset>
+    {{ end }}
+    <fieldset>
+      <legend>{{ $copy.closingHeading }}</legend>
+      <div class="inquiry-grid">
+        {{ partial "inquiry-field.html" (dict "field" (dict "name" "timing" "label" $copy.timing "options" $copy.timingOptions "required" true) "select" $copy.select "conditional" false) }}
+        {{ partial "inquiry-field.html" (dict "field" (dict "name" "message" "label" $copy.message "type" "textarea") "select" $copy.select "conditional" false) }}
+      </div>
+      <label class="inquiry-consent"><input type="checkbox" name="contact_consent" value="yes" required><span>{{ $copy.consent }} *</span></label>
+      <p class="inquiry-note">{{ $copy.privacy }}</p>
+      <p class="inquiry-note">{{ $copy.disclaimer }}</p>
+    </fieldset>
+    <button type="submit" class="glezper-button" {{ if not site.Params.businessFormEnabled }}disabled{{ end }}><span data-submit-label>{{ $copy.submit }}</span>{{ partial "glezper-arrow.html" . }}</button>
+    <p class="inquiry-note">{{ $copy.fallback }} <a href="mailto:christianglezper@gmail.com">christianglezper@gmail.com</a>.</p>
+  </form>
+</section>
+{{ $script := resources.Get "js/business-inquiry.js" | minify | fingerprint }}
+<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>

@@ -8,7 +8,7 @@ Cuéntanos dónde estás, adónde quieres llegar y qué se interpone entre ambos
 
 **Correo electrónico:** [christianglezper@gmail.com](mailto:christianglezper@gmail.com)
 
-**Teléfono:** [787-377-9522](tel:+17873779522)
+Para financiamiento, procesamiento de pagos o automatización, [completa nuestro formulario de consulta]({{< ref "business" >}}#business-inquiry).
 
 Desde Puerto Rico. Atención en español e inglés.
 

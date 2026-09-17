@@ -25,7 +25,7 @@ class Page(HTMLParser):
             if a.get('hreflang'): self.alternates[a['hreflang']] = a['href']
             if a.get('rel') == 'stylesheet': self.assets.append(a['href'])
 
-routes = ['', '360/', 'media/', 'business/', 'contact/']
+routes = ['', '360/', 'media/', 'business/', 'contact/', 'thanks/']
 for lang in ['', 'es/']:
     for route in routes:
         path = lang + route
@@ -40,6 +40,8 @@ for lang in ['', 'es/']:
         assert page.canonical == 'https://glezper.com/' + path, f'{path}: wrong canonical'
         assert 'Powered by Publii' not in text and 'BIU' not in text
         assert 'data:image' not in text
+        assert '787-377-9522' not in text and '17873779522' not in text, f'{path}: private phone exposed'
+        assert '↗' not in text and '→' not in text and '➡' not in text, f'{path}: text arrow instead of SVG'
         for link in page.links + page.assets:
             u = urlparse(urljoin('https://glezper.com/' + path, link))
             if u.scheme not in ('http', 'https') or u.netloc != 'glezper.com': continue
@@ -50,6 +52,15 @@ for lang in ['', 'es/']:
 for legacy in ['glezper-360deg.html', 'glezper-media.html', 'glezper-business.html', 'hecho-para-quienes-hacen-negocios.html']:
     assert (root / legacy).is_file(), f'Missing legacy alias: {legacy}'
 assert (root / 'CNAME').read_text().strip() == 'glezper.com'
-assert '001QP00001dUhWtYAK' in (root / 'business/index.html').read_text()
-assert '001QP00001dUhWtYAK' in (root / 'es/business/index.html').read_text()
-print('PASS legacy aliases, domain preservation and financing partner link')
+for lang in ['', 'es/']:
+    text = (root / lang / 'business/index.html').read_text()
+    assert 'data-delivery-enabled=false' in text or 'data-delivery-enabled="false"' in text
+    assert 'action=#business-inquiry' in text or 'action="#business-inquiry"' in text
+    assert '001QP00001dUhWtYAK' not in text, 'Inquiry must not go directly to a provider'
+    for field in ['interest_financing', 'interest_pos', 'interest_automation', 'monthly_revenue', 'pos_goal', 'automation_process', 'contact_consent', '_honey']:
+        assert f'name={field}' in text or f'name="{field}"' in text, f'Missing field {field}'
+    assert 'https://glezper.com/' + lang + 'thanks/' in text
+    assert '_captcha' not in text, 'Keep provider CAPTCHA enabled'
+for file in root.glob('**/*.json'):
+    assert '787-377-9522' not in file.read_text(), f'Private phone in {file}'
+print('PASS legacy aliases, privacy, provider-neutral intake and email form configuration')
