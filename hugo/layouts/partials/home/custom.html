@@ -1,0 +1,35 @@
+<section class="glezper-hero" aria-labelledby="hero-title">
+  <p class="glezper-eyebrow">{{ .Params.eyebrow }}</p>
+  <h1 id="hero-title">{{ .Title }}</h1>
+  <div class="glezper-intro">{{ .Content }}</div>
+  <div class="glezper-home-actions">
+    {{ with .Site.GetPage "/contact" }}
+      <a class="glezper-button" href="{{ .RelPermalink }}">{{ $.Params.cta }} {{ partial "glezper-arrow.html" . }}</a>
+    {{ end }}
+    <a class="glezper-button glezper-portfolio-button" href="https://christian.glezper.com/" target="_blank" rel="noopener noreferrer">
+      {{ if eq .Language.Lang "es" }}Ver el portafolio de Christian{{ else }}View Christian’s portfolio{{ end }} {{ partial "glezper-arrow.html" . }}
+    </a>
+  </div>
+</section>
+<section class="glezper-practices" aria-labelledby="practices-title">
+  <h2 id="practices-title" class="glezper-section-title">{{ .Params.divisionsLabel }}</h2>
+  <div class="glezper-grid">
+    {{ range $i, $division := .Params.divisions }}
+      <article class="glezper-card">
+        <span class="glezper-number" aria-hidden="true">0{{ add $i 1 }}</span>
+        <h3>{{ $division.title }}</h3>
+        <p class="glezper-tagline">{{ $division.tagline }}</p>
+        <p>{{ $division.text }}</p>
+        {{ with $division.detail }}<p class="glezper-detail">{{ . }}</p>{{ end }}
+        {{ with $.Site.GetPage $division.page }}
+          <a href="{{ .RelPermalink }}">{{ if eq $.Language.Lang "es" }}Explora{{ else }}Explore{{ end }} {{ $division.title }} {{ partial "glezper-arrow.html" . }}</a>
+        {{ end }}
+      </article>
+    {{ end }}
+  </div>
+</section>
+<section class="glezper-contact" aria-labelledby="contact-title">
+  <h2 id="contact-title">{{ .Params.contactHeading }}</h2>
+  <p>{{ .Params.contactText }}</p>
+  <div class="glezper-contact-links"><a href="mailto:christianglezper@gmail.com">christianglezper@gmail.com</a></div>
+</section>
