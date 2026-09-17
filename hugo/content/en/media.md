@@ -5,27 +5,19 @@ translationKey: media
 aliases: ["/glezper-media.html"]
 ---
 
-**Audiences worth reaching.**
+<div class="media-opening"><p class="media-kicker">Glezper Media</p><h2>Audiences worth reaching.</h2><p class="media-lead">Publishing with a point of view, then building meaningful ways for brands to show up.</p></div>
 
 Glezper Media develops media brands and advertising opportunities built around distinct audiences, interests and communities in Puerto Rico.
 
 Our approach combines original publishing with commercial partnerships that give businesses and organizations meaningful ways to connect with the people they want to reach.
 
-### Our Media
+### Two editorial voices
 
 **Publishing with a point of view.**
 
 Our portfolio brings together editorial brands created for specific audiences and conversations.
 
-**Valor**  
-Business, entrepreneurship and commerce in Puerto Rico—created for the people building, managing and growing businesses.
-
-[http://www.revistavalorpr.com](http://www.revistavalorpr.com)
-
-**Agaynda**  
-Culture, lifestyle and community from an LGBT+ Puerto Rican perspective
-
-[http://www.agaynda.com](http://www.agaynda.com)
+<div class="media-brand-grid"><article class="media-brand-card"><img src="https://res.cloudinary.com/m2el9wb5/image/upload/f_auto,q_auto,w_600/6d5444f8-542b-406f-bda6-90b7f61b0e34.jpg" alt="Valor logo"><p class="media-brand-label">Business, leadership and practical intelligence for Puerto Rico.</p><a href="http://www.revistavalorpr.com">Visit Valor <svg class="glezper-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7"/></svg></a></article><article class="media-brand-card"><img src="https://res.cloudinary.com/m2el9wb5/image/upload/f_auto,q_auto,w_600/portfolio/agaynda/wordmark.png" alt="Agaynda logo"><p class="media-brand-label">Culture, community and queer Puerto Rican life.</p><a href="http://www.agaynda.com">Visit Agaynda <svg class="glezper-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7"/></svg></a></article></div>
 
 ### Advertising & Brand Partnerships
 
@@ -48,3 +40,5 @@ That allows us to think beyond individual placements and recommend a media mix b
 **Tell us who you need to reach.**
 
 Whether you are launching something new, building awareness, reaching a specific community or looking for a more creative way to show up, we can develop an advertising approach around your objectives.
+
+<div class="media-pullquote">The right message deserves the right environment.</div>
