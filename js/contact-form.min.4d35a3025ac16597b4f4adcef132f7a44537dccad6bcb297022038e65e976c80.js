@@ -1,0 +1,1 @@
+(function(){const e=document.querySelectorAll(".contact-form form");e.forEach(e=>e.addEventListener("submit",function(t){if(e.dataset.deliveryEnabled!=="true"){t.preventDefault();return}if(!e.reportValidity()){t.preventDefault();return}const n=e.querySelector("button");n.disabled=!0}))})()

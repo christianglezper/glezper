@@ -1,0 +1,33 @@
+name: Build bilingual Hugo review (no deployment)
+on:
+  push:
+    branches: ['migration/hugo-blowfish-bilingual']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.165.0'
+          extended: true
+      - name: Build production configuration
+        run: hugo --source hugo --gc --minify
+      - name: Validate routes, translations and assets
+        run: python3 scripts/check_hugo.py hugo/public
+      - name: Save review build
+        uses: actions/upload-artifact@v4
+        with:
+          name: glezper-hugo-review
+          path: hugo/public
+          retention-days: 30
+      # Intentionally no Pages deployment. Production remains the Publii export.

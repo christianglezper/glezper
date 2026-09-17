@@ -1,0 +1,15 @@
+{{ $field := .field }}
+{{ $id := printf "inquiry-%s" $field.name }}
+<div class="inquiry-field{{ if eq $field.type "textarea" }} inquiry-wide{{ end }}"{{ with $field.whenField }} data-when-field="{{ . }}" data-when-values="{{ delimit $field.whenValues "," }}"{{ end }}>
+  <label for="{{ $id }}">{{ $field.label }}{{ if $field.required }} <span aria-hidden="true">*</span>{{ end }}</label>
+  {{ if $field.options }}
+    <select id="{{ $id }}" name="{{ $field.name }}" {{ if $field.required }}{{ if .conditional }}data-required="true"{{ else }}required{{ end }}{{ end }}>
+      <option value="">{{ .select }}</option>
+      {{ range $field.options }}<option value="{{ .value }}">{{ .label }}</option>{{ end }}
+    </select>
+  {{ else if eq $field.type "textarea" }}
+    <textarea id="{{ $id }}" name="{{ $field.name }}" rows="3" maxlength="1500" {{ if $field.required }}{{ if .conditional }}data-required="true"{{ else }}required{{ end }}{{ end }}></textarea>
+  {{ else }}
+    <input id="{{ $id }}" name="{{ $field.name }}" type="{{ $field.type | default "text" }}" {{ if eq $field.type "number" }}min="1" max="100000000" step="1" inputmode="numeric"{{ else }}maxlength="200"{{ end }} {{ with $field.autocomplete }}autocomplete="{{ . }}"{{ end }} {{ if $field.required }}{{ if .conditional }}data-required="true"{{ else }}required{{ end }}{{ end }}>
+  {{ end }}
+</div>

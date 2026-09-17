@@ -1,0 +1,125 @@
+baseURL = 'https://glezper.com/'
+theme = 'blowfish'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']
+buildDrafts = false
+buildFuture = false
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[languages.en]
+  locale = 'en-US'
+  label = 'English'
+  weight = 1
+  title = 'Glezper'
+  contentDir = 'content/en'
+  [languages.en.params]
+    displayName = 'EN'
+    isoCode = 'en'
+    description = 'Integrated communications and business consultancy in Puerto Rico. Strategy, creativity and commercial thinking.'
+  [[languages.en.menus.main]]
+    name = 'Glezper 360°'
+    pageRef = '/360'
+    weight = 10
+  [[languages.en.menus.main]]
+    name = 'Media'
+    pageRef = '/media'
+    weight = 20
+  [[languages.en.menus.main]]
+    name = 'Business'
+    pageRef = '/business'
+    weight = 30
+  [[languages.en.menus.main]]
+    name = 'Contact'
+    pageRef = '/contact'
+    weight = 40
+
+[languages.es]
+  locale = 'es-PR'
+  label = 'Español'
+  weight = 2
+  title = 'Glezper'
+  contentDir = 'content/es'
+  [languages.es.params]
+    displayName = 'ES'
+    isoCode = 'es-PR'
+    description = 'Consultoría de comunicación integrada y negocios en Puerto Rico. Estrategia, creatividad y visión comercial.'
+  [[languages.es.menus.main]]
+    name = 'Glezper 360°'
+    pageRef = '/360'
+    weight = 10
+  [[languages.es.menus.main]]
+    name = 'Media'
+    pageRef = '/media'
+    weight = 20
+  [[languages.es.menus.main]]
+    name = 'Business'
+    pageRef = '/business'
+    weight = 30
+  [[languages.es.menus.main]]
+    name = 'Contacto'
+    pageRef = '/contact'
+    weight = 40
+
+[params]
+  businessFormEndpoint = 'https://formsubmit.co/christianglezper@gmail.com'
+  businessFormEnabled = false
+  opfReferralURL = 'https://secure.oneparkfinancial.com/application/iso-partner?lan=es&source=partner&partnerId=001QP00001dUhWtYAK&opportunitySignedStageName=Application%20In&opportunityCompleteStageName=UW%20-%20Doc%20Processing'
+  colorScheme = 'avocado'
+  defaultAppearance = 'light'
+  autoSwitchAppearance = false
+  logo = 'img/glezper-gold.png'
+  disableTextInHeader = true
+  enableSearch = true
+  enableCodeCopy = false
+  defaultSocialImage = '/media/website/glezper_gold_wordmark.png'
+  [params.header]
+    layout = 'basic'
+  [params.homepage]
+    layout = 'custom'
+    showRecent = false
+  [params.footer]
+    showMenu = false
+    showCopyright = true
+    showThemeAttribution = false
+    showAppearanceSwitcher = true
+    showScrollToTop = true
+  [params.article]
+    showDate = false
+    showAuthor = false
+    showReadingTime = false
+    showWordCount = false
+    showPagination = false
+    showTaxonomies = false
+    showTableOfContents = false
+    showBreadcrumbs = false
+  [params.list]
+    showDate = false
+    showAuthor = false
+
+[markup.goldmark.renderer]
+  unsafe = true
+[markup.goldmark.parser.attribute]
+  block = true
+[markup.highlight]
+  noClasses = false
+
+# Reuse existing assets without moving or changing the Publii export.
+[[module.mounts]]
+  source = 'static'
+  target = 'static'
+[[module.mounts]]
+  source = 'assets'
+  target = 'assets'
+[[module.mounts]]
+  source = '../media/website/glezper_gold_wordmark.png'
+  target = 'assets/img/glezper-gold.png'
+[[module.mounts]]
+  source = '../media'
+  target = 'static/media'
+[[module.mounts]]
+  source = '../CNAME'
+  target = 'static/CNAME'

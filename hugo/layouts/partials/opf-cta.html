@@ -1,0 +1,8 @@
+{{ $es := eq .Page.Language.Lang "es" }}
+<aside class="opf-callout" {{ if .conditional }}id="opf-qualified-route" hidden{{ end }} aria-label="{{ if $es }}Financiamiento con One Park Financial{{ else }}Funding with One Park Financial{{ end }}">
+  <p class="glezper-eyebrow">One Park Financial</p>
+  <h3>{{ if $es }}Dale impulso al próximo paso de tu negocio.{{ else }}Give your next stage of growth a head start.{{ end }}</h3>
+  <p>{{ if $es }}¿Tu negocio genera al menos $10,000 mensuales y lleva tres meses o más en operación? Explora opciones de capital comercial mediante nuestro enlace de referido de One Park Financial.{{ else }}Generating at least $10,000 a month and in business for three months or more? Explore business funding through our One Park Financial referral link.{{ end }}</p>
+  <a class="glezper-button" href="{{ site.Params.opfReferralURL }}" target="_blank" rel="sponsored noopener noreferrer">{{ if $es }}Explorar financiamiento con OPF{{ else }}Explore funding with OPF{{ end }} {{ partial "glezper-arrow.html" . }}</a>
+  <p class="inquiry-note">{{ if $es }}Abre el portal de OPF en otra pestaña. La aprobación y los términos están sujetos a su evaluación. Los datos que hayas escrito aquí no se envían al abrir este enlace.{{ else }}Opens OPF's portal in a new tab. Approval and terms are subject to its review. Opening this link does not send the answers you have entered here.{{ end }}</p>
+</aside>
