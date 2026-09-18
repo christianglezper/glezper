@@ -1,0 +1,54 @@
+<div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  <div>
+    <a href="{{ "" | relLangURL }}" class="flex">
+      <span class="sr-only">{{ .Site.Title | markdownify }}</span>
+      <img
+        src="https://res.cloudinary.com/m2el9wb5/image/upload/f_auto,q_auto,w_360/website/glezper_gold_wordmark.png"
+        width="360"
+        height="105"
+        class="logo max-h-20 max-w-20 object-scale-down object-left nozoom"
+        alt="Glezper">
+    </a>
+  </div>
+  {{ if not .Site.Params.disableTextInHeader | default true }}
+    <a href="{{ "" | relLangURL }}" class="text-base font-medium truncate min-w-0 shrink">
+      {{ .Site.Title | markdownify }}
+    </a>
+  {{ end }}
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      {{ partial "header/components/desktop-menu.html" . }}
+    </div>
+    <div class="flex md:hidden">
+      {{ partial "header/components/mobile-menu.html" . }}
+    </div>
+  </div>
+</div>
+
+{{ if .Site.Menus.subnavigation }}
+  <nav id="main-menu" aria-label="{{ i18n "nav.main_menu" }}">
+    <div class="main-menu flex pb-3 flex-col items-end justify-between md:justify-start space-x-3 -mt-[15px]">
+      <div class="hidden md:flex items-center space-x-5">
+        {{ range .Site.Menus.subnavigation }}
+          <a href="{{ .URL }}" {{ if or (strings.HasPrefix .URL "http:" ) (strings.HasPrefix .URL "https:" ) }}target="_blank"{{ end }} class="flex items-center bf-icon-color-hover">
+            {{ if .Pre }}<span {{ if and .Pre .Name }}class="mr-1"{{ end }}>{{ partial "icon.html" .Pre }}</span>{{ end }}
+            <span class="text-xs font-light" title="{{ .Title }}">{{ .Name | markdownify }}</span>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  </nav>
+{{ end }}
+
+{{ if .Site.Params.highlightCurrentMenuArea }}
+  <script>
+    (function () {
+      var mainmenu = document.querySelector(".main-menu");
+      if (!mainmenu) return;
+      var path = window.location.pathname;
+      mainmenu.querySelectorAll('a[href="' + path + '"]').forEach(function (link) {
+        link.querySelectorAll("span").forEach(function (el) { el.classList.add("active"); });
+      });
+    })();
+  </script>
+{{ end }}
